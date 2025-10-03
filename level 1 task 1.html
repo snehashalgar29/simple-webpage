@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Level 1 – Task 1 Solution with JavaScript</title>
+  <style>
+    body {
+      background-color: lightgray;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    h1, h2, h3 {
+      color: darkblue;
+    }
+    img {
+      margin-top: 10px;
+      border-radius: 8px;
+      border: 4px solid transparent;
+      cursor: pointer;
+    }
+    button {
+      background-color: green;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 10px 16px;
+      cursor: pointer;
+    }
+    nav {
+      margin-top: 20px;
+    }
+    nav a {
+      text-decoration: none;
+      color: blue;
+      border: 2px solid blue;
+      padding: 8px 12px;
+      margin-right: 8px;
+      border-radius: 6px;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      background-color: blue;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Welcome to Web Development</h1>
+  <p>This is my first webpage using HTML, CSS, and JavaScript.</p>
+
+  <img src="codings.jpg" alt="Student learning coding" width="300" id="mainImage">
+
+  <h2>Form Example</h2>
+  <form id="nameForm">
+    <input type="text" id="username" placeholder="Enter your name">
+    <button type="submit">Register</button>
+  </form>
+
+  <h2>Navigation Menu</h2>
+  <nav>
+    <a href="#" class="nav-link">Home</a>
+    <a href="#" class="nav-link">About</a>
+    <a href="#" class="nav-link">Contact</a>
+  </nav>
+
+  <script>
+    // Form submit interaction
+    document.getElementById('nameForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // stop page reload
+      let name = document.getElementById('username').value;
+      if (name) {
+        alert("Hello, " + name + "! Welcome to Web Development.");
+      } else {
+        alert("Please enter your name before submitting.");
+      }
+    });
+
+    // Navigation interaction
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', function(event) {
+        event.preventDefault();
+        alert("You clicked on " + this.textContent + " link!");
+      });
+    });
+
+    // Image interaction - change border color randomly
+    document.getElementById('mainImage').addEventListener('click', function() {
+      const colors = ["red", "green", "blue", "purple", "orange"];
+      let randomColor = colors[Math.floor(Math.random() * colors.length)];
+      this.style.borderColor = randomColor;
+    });
+  </script>
+
+</body>
+</html>
